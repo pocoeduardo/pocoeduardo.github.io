@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+	
+</style>
+
+<template>
+	
+</template>
+
+<body onload="startup()">
+	pocoeduardo
+</body>
+
+<script defer src="file:\\C:\Users\Eduardo\Documents\Site\Netlify\meus\functions\mainlib.js"></script>
+<script defer src="file:\\C:\Users\Eduardo\Documents\Site\Netlify\meus\views\public\js\general.js"></script>
+<script defer src="file:\\C:\Users\Eduardo\Documents\Site\Netlify\meus\views\public\js\overrides.js"></script>
+
+<script>
+	async function startup() {
+		
+		
+		registraEventos();
+	}
+	
+	function registraEventos() {
+		helpers.registraEventos(window, {
+			body: {
+				keyup(ev, tar) {
+					helpers.processaEventosTeclado(ev, {
+						"CTRL Enter": ev => console.log(ev),
+					});
+				},
+			},
+			
+			async click(ev, tar) {
+				if (tar.matches("[data-func]")) {
+					window[tar.dataset.func](ev, tar);
+				} else if (tar.id == "xxx") {
+					
+				}
+			},
+		});
+	}
+</script>
+
+</html>
